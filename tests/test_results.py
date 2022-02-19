@@ -14,7 +14,7 @@ import sys
 sys.path.append("/agi-coding-challenge/code")
 sys.path.append("/agi-coding-challenge/data")
 
-class TestCalc(unittest.TestCase):
+class TestResults(unittest.TestCase):
 
     df = pd.read_csv("/agi-coding-challenge/data/sample.csv")
 
