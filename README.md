@@ -8,6 +8,11 @@ Simple CLI app that reads a csv file and processes them using pandas dataframe
 * Pandas
 `pip install pandas`
 
+## Installation
+
+* Clone the repo
+  `git clone https://github.com/PrashanPudasaini/agi-coding-challenge.git`
+
 ### Run the cli app
 
 `python main.py`
