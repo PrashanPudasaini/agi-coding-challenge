@@ -52,8 +52,8 @@ class TestResults(unittest.TestCase):
         OK: if test passes
         FAILED: if test fails
         """
-        expected = 1
-        actual = total_unique_can_msg(self.df, 'dlc')
+        expected = 10
+        actual = total_unique_can_msg(self.df, 'message_id', 'dlc', 'payload')
         self.assertEqual(expected, actual)
 
     def test_total_runtime_of_data(self):
@@ -86,7 +86,6 @@ class TestResults(unittest.TestCase):
         FAILED: if test fails
         """
         expected = '2016-10-28 05:00:00'
-        print(expected)
         actual = first_ts_with_most_can_msg(self.df, 'ts')
         self.assertEqual(expected, actual)
 
@@ -98,7 +97,6 @@ class TestResults(unittest.TestCase):
         FAILED: if test fails
         """
         expected = '2016-10-28 05:00:02'
-        print(expected)
         actual = first_ts_with_least_can_msg(self.df, 'ts')
         self.assertEqual(expected, actual)
 

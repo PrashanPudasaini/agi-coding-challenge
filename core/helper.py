@@ -1,6 +1,7 @@
 """Run operations in parallel with multiprocessing.
 
 A module with "run_in_parallel" that takes all functions and runs them in parallel with python multiprocessing. 
+To be used for scaling purpose. Redundant for a small datasets.
 
 Author: Prashan Pudasaini <prashan.pudasaini@outlook.com>
 
