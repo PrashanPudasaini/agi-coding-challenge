@@ -11,6 +11,7 @@ Author: Prashan Pudasaini <prashan.pudasaini@outlook.com>
 Created: February 18th, 2022
 """
 import pandas as pd #to convert timestamp to python datetime
+pd.set_option("display.max_rows", None, "display.max_columns", None)
 
 def total_gps_msg(df, key):
     """Calculates the total number of unique gps_id in the dataframe
@@ -124,3 +125,49 @@ def avg_can_msg(df, key):
         print(f'Cannot find key "{key}" in the dataframe.')
     else:
         return avg
+
+def first_ts_with_most_can_msg(df, key):
+    """Finds the first timestamp that contains the most CAN messages
+
+    Parameters:
+    __________
+    df: pandas.DataFrame 
+        The dataframe on which the oprations will be performed
+    key: string
+        The column name to perform operations on (key must be present in the dataframe)
+
+    Returns:
+    ________
+    First timestamp that contains the most CAN messsgaes
+    """
+    try:
+        total_unique_ts = df['ts'].value_counts() - 1
+        sorted_series = total_unique_ts.sort_index()
+
+    except KeyError:
+        print(f'Cannot find key "{key}" in the dataframe.')
+    else:
+        return sorted_series.idxmax()
+
+def first_ts_with_least_can_msg(df, key):
+    """Finds the first timestamp that contains the least CAN messages
+
+    Parameters:
+    __________
+    df: pandas.DataFrame 
+        The dataframe on which the oprations will be performed
+    key: string
+        The column name to perform operations on (key must be present in the dataframe)
+
+    Returns:
+    ________
+    First timestamp that contains the least CAN messsgaes
+    """
+    try:
+        total_unique_ts = df['ts'].value_counts() - 1
+        sorted_series = total_unique_ts.sort_index()
+
+    except KeyError:
+        print(f'Cannot find key "{key}" in the dataframe.')
+    else:
+        return sorted_series.idxmin()
