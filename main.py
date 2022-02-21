@@ -8,6 +8,8 @@ Author: Prashan Pudasaini <prashan.pudasaini@outlook.com>
 
 Created: February 19th, 2022
 """
+import opentracing
+import lightstep
 import pandas as pd #to read csv file
 from datetime import datetime # to measure app performance
 from core.helper import run_in_parallel
@@ -22,6 +24,7 @@ from core.utils import (
 )
 
 def main():
+    
     csv_file = "data/gps_can_data.csv"
     print('Processing. Please wait...\n--------------------------\n')
     t1 = datetime.now()
