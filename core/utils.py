@@ -29,7 +29,7 @@ def total_gps_msg(df, col):
     try:
         total_unique_gps_id = (df[col]).value_counts()
     except KeyError:
-        print(f'Cannot find key "{key}" in the dataframe.')
+        print(f'Cannot find key "{col}" in the dataframe.')
     else:
         return len(total_unique_gps_id)
 
@@ -50,7 +50,7 @@ def total_can_msg(df, col):
     try:
         total_msg_id = df[col].count() #count() to count only non-null values
     except KeyError:
-        print(f'Cannot find key "{key}" in the dataframe.')
+        print(f'Cannot find key "{col}" in the dataframe.')
     else:
         return total_msg_id
 
@@ -119,7 +119,7 @@ def avg_can_msg(df, col):
         total_can_msg = df[col].value_counts() - 1 #value_counts() to return series containing counts of unique values
         avg = total_can_msg.mean(axis = 0) # mean() to average total number of message_id per second of runtime and per gps_id
     except KeyError:
-        print(f'Cannot find key "{key}" in the dataframe.')
+        print(f'Cannot find key "{col}" in the dataframe.')
     else:
         return avg
 
@@ -142,7 +142,7 @@ def first_ts_with_most_can_msg(df, col):
         sorted_series = total_unique_ts.sort_index() # sort_index() to sort the series based on timestamp in an ascending order
 
     except KeyError:
-        print(f'Cannot find key "{key}" in the dataframe.')
+        print(f'Cannot find key "{col}" in the dataframe.')
     else:
         return sorted_series.idxmax() # idxmax() to return the index of first highest number of timestamp
 
@@ -165,6 +165,6 @@ def first_ts_with_least_can_msg(df, col):
         sorted_series = total_unique_ts.sort_index() # sort_index() to sort the series based on timestamp in an ascending order
 
     except KeyError:
-        print(f'Cannot find key "{key}" in the dataframe.')
+        print(f'Cannot find key "{col}" in the dataframe.')
     else:
         return sorted_series.idxmin() # idxmin() to return the index of first lowest number of timestamp
